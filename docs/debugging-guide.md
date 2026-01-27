@@ -1,6 +1,6 @@
 # A Practical Model for Debugging Issues During Development
 
-Debugging is a core part of software development, yet many developers approach it in an unstructured way. They often jump between logs, breakpoints and code until something works. While experience helps, having a simple model can make debugging more predictable and less frustrating, even for complex issues.
+**Debugging** is a core part of software development, yet many developers approach it in an unstructured way. They often jump between logs, breakpoints and code until something works. While experience helps, having a simple model can make debugging more predictable and less frustrating, even for complex issues.
 
 This post explains a general approach to debugging, emphasizing the importance of thinking in a structured and organized way.
 
@@ -32,8 +32,8 @@ This helps avoid random trial-and-error and keeps debugging focused.
 Debugging often gets stuck because people don’t question their assumptions.
 
 Instead of assuming something is correct, I treat assumptions as hypotheses that need validation. For example:
-1. Is this input really what I think it is?
-2. Is this function being called as often as expected?
+1. Is this input really what I think it is (`userInput`)?
+2. Is this function being called as often as expected (`getData()`)?
 3. Is the error happening before or after a certain transformation?
 
 Each debugging step should either confirm or reject one assumption.
@@ -47,6 +47,8 @@ Instead of adding random logs or stepping through lots of code, I try to:
 2. Check values that matter to the current theory
 3. Remove any temporary logs or breakpoints once they’ve done their job
 
+   ```log.debug("User input value:", userInput)```
+
 This keeps debugging clear and focused, and avoids creating more confusion.
 
 ## 5. Compare Working and Failing Cases
@@ -59,9 +61,15 @@ Useful comparisons include:
 3. Steps taken during execution
 4. Intermediate outputs
 
+|      Parameter      |      Working Case      |      Failing Case      |
+|---------------------|------------------------|------------------------|
+|      Input          |      10                |      -5                |
+|      Configuration  |      Enabled           |      Disabled          |
+|      Output         |      Success           |      Error             |
+
 The first meaningful difference which get spotted often leads closer to the real problem than the final error message.
 
-## 6. Avoid Common Debugging Traps
+## 6. ⚠️ Avoid Common Debugging Traps
 
 Some habits can make debugging slower and more frustrating:
 1. Making multiple changes at once
