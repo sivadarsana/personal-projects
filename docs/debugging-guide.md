@@ -49,7 +49,7 @@ Instead of adding random logs or stepping through lots of code, I try to:
 
 This keeps debugging clear and focused, and avoids creating more confusion.
 
-## 5. Compare working and failing cases
+## 5. Compare Working and Failing Cases
 
 Looking at a working example alongside a failing one usually gives more clues than examining the failure by itself.
 
