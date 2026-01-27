@@ -47,6 +47,8 @@ Instead of adding random logs or stepping through lots of code, I try to:
 2. Check values that matter to the current theory
 3. Remove any temporary logs or breakpoints once they’ve done their job
 
+   Example:
+
    ```log.debug("User input value:", userInput)```
 
 This keeps debugging clear and focused, and avoids creating more confusion.
